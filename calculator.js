@@ -1,58 +1,31 @@
-let calculator = document.getElementById('calculator');
 
-let result = document.getElementById('calculator-resultado');
+const calculatorOperation = document.querySelector('.calculator-operation');
+const calculatorResult = document.querySelector('.calculator-result');
+const buttons = document.querySelector('.calculator-buttons');
 
-let output = document.getElementById('calculator-output');
-
-calculator.addEventListener('click', calculatorClick);
-
-
-function calculatorClick(event) {
-    let target = event.target;
-    let dataset = target.dataset;
-    let value = dataset.value;
-    let type = dataset.type;
-
-    if (type) {
-        calc.input(type, value);
-        result = calc.output();
-        output.innerHTML = result;
-    }
+const writeOperation = text => {
+    if (calculatorOperation.value == 0) calculatorOperation.value = '';
+    calculatorOperation.value += text;
 }
-//States
-const STATE_LEFT_OPERAND = 'left_operand';
-const STATE_RIGHT_OPERAND = 'right_operand';
-const STATE_OPERATOR = 'operator';
-const STATE_RESULT = 'result';
 
-//Inputs
-const TYPE_NUMBER = 'number';
-const TYPE_ACTION = 'action';
-const TYPE_OPERATOR = 'operator';
+const writeResult = () => {
+    calculatorResult.innerHTML = eval(calculatorOperation.value)
+}
 
-
-class Calculator {
-    constructor() {
-        this.init();
-    }
-    init() {
-        this.accumulator = [];
-        this.operator = null;
-        this.leftOperand = 0;
-        this.rightOperand = 0;
-        this.state = null;
-        this.strategy = null;
-    }
-
-    input(type, value) {
-
-    }
-
-    output() {
-        let result = 0;
-        if (this.accumulator.length > 0) {
-            result = this.accumulator.join('');
+buttons.addEventListener('click', e => {
+    if (e.target.textContent !== '') {
+        switch (e.target.textContent) {
+            case '=': writeResult();
+                break;
+            case 'AC': writeScreen();
+                break;
+            case 'delete': changeSing();
+                break;
+            case ',': writeOperation('.');
+                break;
+            default: writeOperation(e.target.textContent);
+                break;
         }
-        return result;
     }
-}
+})
+

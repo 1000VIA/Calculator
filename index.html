@@ -12,36 +12,34 @@
 <body>
     <div id="calculator" class="calculator">
         <div class="calculator-display">
-            <div id="calculator-result">1</div>
-            <div id="calculator-output">0</div>
+            <input type="text" class="calculator-operation" value="0">
+            <input type="text" class="calculator-result" value="0">
         </div>
-
         <!-- the buttons -->
         <div class="calculator-buttons">
-            <button data-value="action">AC</button>
-            <button><img src="ic_delete.png" alt=""></i></button>
-            <button data-type="operator" data-value="&#37">&#37; % </button>
-            <button data-type="operator" data-value="&#47" class="blue-btn ">&#47; / </button>
+            <button class="btn">AC</button>
+            <button class="btn img">delete</button>
+            <button class="btn">&#37; </button>
+            <button class="btn blue-btn ">&#47; </button>
 
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn blue-btn ">&times; </button>
 
-            <button data-type="number" data-value="1">1</button>
-            <button data-type="number" data-value="2">2</button>
-            <button data-type="number" data-value="3">3</button>
-            <button data-type="operator" data-value="&times" class="blue-btn ">&times; x </button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn blue-btn">&#45; </button>
 
-            <button data-type="number" data-value="4">4</button>
-            <button data-type="number" data-value="5">5</button>
-            <button data-type="number" data-value="6">6</button>
-            <button data-type="operator" data-value="&#45" class="blue-btn">&#45; - </button>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn blue-btn">&#43; </button>
 
-            <button data-type="number" data-value="7">7</button>
-            <button data-type="number" data-value="8">8</button>
-            <button data-type="number" data-value="9">9</button>
-            <button data-type="operator" data-value="&#43" class="blue-btn">&#43; + </button>
-
-            <button data-type="number" data-value="0" class="is-zero">0</button>
-            <button data-value="&#44">&#44;</button>
-            <button data-type="action" data-value="&#61" class="blue-btn ">&#61; = </button>
+            <button class="btn is-zero">0</button>
+            <button class="btn">&#44;</button>
+            <button class="btn blue-btn ">&#61; </button>
         </div>
 
     </div>
