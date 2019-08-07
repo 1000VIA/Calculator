@@ -9,12 +9,16 @@ const writeOperation = text => {
 }
 
 const writeResult = () => {
-    calculatorResult.innerHTML = eval(calculatorOperation.value)
+    let operation = calculatorOperation.value.replace(String.fromCharCode(215), '*')
+    // operation = operation.replace(String.fromCharCode(215), '*')
+    calculatorResult.value = eval(operation)
 }
 
 buttons.addEventListener('click', e => {
-    if (e.target.textContent !== '') {
-        switch (e.target.textContent) {
+    let content = e.target.textContent
+    console.log('-' + content + '-')
+    if (content !== '') {
+        switch (content) {
             case '=': writeResult();
                 break;
             case 'AC': writeScreen();
@@ -23,7 +27,7 @@ buttons.addEventListener('click', e => {
                 break;
             case ',': writeOperation('.');
                 break;
-            default: writeOperation(e.target.textContent);
+            default: writeOperation(content);
                 break;
         }
     }
